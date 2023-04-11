@@ -6,7 +6,7 @@
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
-  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+  <h1 style="text-align: center; margin-top: 5rem;"><em>Psst: Have a look at the JavaScript Console</em> 💁</h1>
   <script>
     // Get your shorts on - this is an array workout!
     // ## Array Cardio Day 1
@@ -39,8 +39,26 @@
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
 
+    // for (let i = 0; i < inventors.length; i++) {
+    //     if (inventors[i].year > 1500 && inventors[i].year < 1600) {
+    //         console.log(inventors[i].year);
+    //     } 
+    // }
+
+    const inventorsInFifteen = inventors.filter(function(inventor) {
+        if(inventor.year > 1499 && inventor.year < 1600){
+            return inventor.year; // else return false
+        }
+        });
+
+console.table(inventorsInFifteen);
+
+
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
+
+    const fullNames = inventors.map(fullName => `${fullName.first} ${fullName.last}`);
+    console.table(fullNames);
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
