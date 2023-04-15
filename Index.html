@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Array Cardio 💪</title>
   <link rel="icon" href="https://fav.farm/💪" />
 </head>
+
 <body>
-  <h1 style="text-align: center; margin-top: 5rem;"><em>Psst: Have a look at the JavaScript Console</em> 💁</h1>
-  <script>
+  <h1 style="text-align: center; margin-top: 5rem;">
+    <em>My Gee, have a look at the JavaScript Console!</em> 💁</h1>
+  <!--<script>
     // Get your shorts on - this is an array workout!
     // ## Array Cardio Day 1
 
@@ -35,7 +38,7 @@
       'Berne, Eric', 'Berra, Yogi', 'Berry, Wendell', 'Bevan, Aneurin', 'Ben-Gurion, David', 'Bevel, Ken', 'Biden, Joseph', 'Bennington, Chester', 'Bierce, Ambrose',
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
-    
+
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
 
@@ -45,13 +48,13 @@
     //     } 
     // }
 
-    const inventorsInFifteen = inventors.filter(function(inventor) {
-        if(inventor.year > 1499 && inventor.year < 1600){
-            return inventor.year; // else return false
-        }
-        });
+    const inventorsInFifteen = inventors.filter(function (inventor) {
+      if (inventor.year > 1499 && inventor.year < 1600) {
+        return inventor.year; // else return false
+      }
+    });
 
-console.table(inventorsInFifteen);
+    console.table(inventorsInFifteen);
 
 
     // Array.prototype.map()
@@ -60,35 +63,79 @@ console.table(inventorsInFifteen);
     const fullNames = inventors.map(fullName => `${fullName.first} ${fullName.last}`);
     console.table(fullNames);
 
+
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
-  const orderedAge = inventors.sort(function(a, b) {
-    if (a.year > b.year) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
+    const orderedAge = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
+    // const orderedAge = inventors.sort(function(a, b) {
+    //   if (a.year > b.year) {
+    //     return 1;
+    //   } else {
+    //     return -1;
+    //   }
+    // });
 
-  console.table(orderedAge);
+    console.table(orderedAge);
 
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
+    const yearsLived = inventors.reduce(function(total, age){
+      return total + (age.passed - age.year);
+    }, 0)
+
+    console.table(yearsLived);
+
+
 
     // 5. Sort the inventors by years lived
 
+    const oldest = inventors.sort((a, b) => {
+      const firstGuy = a.passed - a.year;
+      const nextGuy = b.passed - b.year;
+      return firstGuy > nextGuy ? -1 : 1;
+    });
+    console.table(oldest);
+
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-
+    // const category = document.querySelector('.mw-category');
+    // const links = Array.from(category.querySelectorAll('a'));
+    // const de = links
+    //               .map(link.textContent)
+    //               .filter(streetName => streetName.includes('de'));
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    const lastNames = people.sort((a, b) =>{
+      return a > b ? 1 : -1;
+    });
+    console.table(lastNames);
+
+    
+    // WesBos Solution
+    const alpha = people.sort((lastone, nextone) => {
+      const [aLast, aFirst] = lastone.split(', ');
+      const [bLast, bFirst] = nextone.split(', ');
+      return aLast > bLast ? 1 : -1;
+    })
+    console.table(alpha);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
-    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
+    const transportation = data.reduce(function(obj, item){
+      if (!obj[item]) {
+        obj[item] = 0;
+      }
+      obj[item]++;
+      return obj;
+    }, {});
+    console.log(transportation);
 
-  </script>
+  </script>-->
+
+  <script src="App.js"></script>
 </body>
+
 </html>
